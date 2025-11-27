@@ -1,7 +1,54 @@
-export default function Header() {
+import React from 'react';
+import { Globe, Moon, Sun, Map, BookOpen, Heart } from 'lucide-react';
+import styles from '../css/Home/Header.module.css';
+
+interface HeaderProps {
+  currentView: string;
+  setView: (view: string) => void;
+  theme: string;
+  toggleTheme: () => void;
+}
+
+export default function Header({ currentView, setView, theme, toggleTheme }: HeaderProps) {
   return (
-    <div>
-      <h2>Header Component</h2>
-    </div>
-  )
+    <header className={`${styles.header} ${theme === 'dark' ? styles.dark : ''}`}>
+      <div className={styles.container}>
+        
+        <div className={styles.logo} onClick={() => setView('home')}>
+          <Globe size={24} className={styles.icon} />
+          <h1>Global Insights</h1>
+        </div>
+
+        <nav className={styles.nav}>
+          <button 
+            className={`${styles.navLink} ${currentView === 'home' ? styles.active : ''}`}
+            onClick={() => setView('home')}
+          >
+            <Map size={18} />
+            <span>Explorar</span>
+          </button>
+
+          <button 
+            className={`${styles.navLink} ${currentView === 'favorites' ? styles.active : ''}`}
+            onClick={() => setView('favorites')}
+          >
+            <Heart size={18} />
+            <span>Favoritos</span>
+          </button>
+
+          <button 
+            className={`${styles.navLink} ${currentView === 'about' ? styles.active : ''}`}
+            onClick={() => setView('about')}
+          >
+            <BookOpen size={18} />
+            <span>Sobre</span>
+          </button>
+
+          <button className={styles.themeToggle} onClick={toggleTheme} aria-label="Alternar tema">
+            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
+        </nav>
+      </div>
+    </header>
+  );
 }
