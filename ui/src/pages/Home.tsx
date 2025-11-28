@@ -50,7 +50,7 @@ export default function HomePage() {
   }, 500);
 
   return () => clearTimeout(timeoutId);
-}, [searchTerm, selectedRegion]);
+}, [searchTerm, selectedRegion, countries]);
 
   const loadCountries = async () => {
     setLoading(true);
