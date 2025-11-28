@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Search, Filter, X } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -220,7 +220,7 @@ export default function HomePage() {
         )}
       </main>
 
-      <Footer />
+      <Footer theme={theme} />
     </div>
   );
 }
