@@ -1,12 +1,15 @@
-import React from 'react';
 import { Heart, Globe } from 'lucide-react';
 import styles from '../styles/Home/Footer.module.css';
 
-export default function Footer() {
+interface FooterProps {
+  theme: string;
+}
+
+export default function Footer({ theme }: FooterProps) {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <p className={styles.text}>
+        <p className={theme === "light" ? styles.text : styles.dark }>
           Feito com <Heart size={16} className={styles.heart} /> usando{' '}
           <a 
             href="https://restcountries.com" 
@@ -18,7 +21,7 @@ export default function Footer() {
             REST Countries API
           </a>
         </p>
-        <p className={styles.copyright}>
+        <p className={theme === "light" ? styles.copyright : styles.copyDark}>
           © 2024 Global Insights
         </p>
       </div>
