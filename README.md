@@ -35,7 +35,7 @@ Como este projeto utiliza **React + Vite**, o processo é diferente de abrir ape
 
 1.  **Clone o repositório:**
     ```bash
-    git clone git clone https://github.com/Gabriel-afk-9/aval-3-pweb.git
+    git clone https://github.com/Gabriel-afk-9/aval-3-pweb.git
     cd aval-3-pweb
     ```
 
