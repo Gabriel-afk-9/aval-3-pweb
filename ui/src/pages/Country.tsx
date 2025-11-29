@@ -2,23 +2,13 @@ import { useState, useEffect } from "react";
 import HeaderCountry from "../components/HeaderCountry";
 import Footer from "../components/Footer";
 import CountryDetailsCard from "../components/CountryDeatailsCard";
-import type { Country } from "../services/countryService";
-import { countryService } from "../services/countryService";
 import styles from "../styles/CountryPage.module.css";
 import { favoritesStorage } from "../utils/favoritesStorage";
-import { useLocation } from 'react-router-dom';
-
+import { useLocation } from "react-router-dom";
 
 export default function CountryPage() {
-  const [countryTest, setCountryTest] = useState<Country | null>(null);
   const [favorites, setFavorites] = useState<string[]>([]);
   const { state } = useLocation();
-
-  useEffect(() => {
-    countryService.getCountryByCode("076").then((data) => {
-      setCountryTest(data);
-    });
-  }, []);
 
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem("theme");
@@ -34,7 +24,6 @@ export default function CountryPage() {
     localStorage.setItem("theme", theme);
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
-
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
@@ -46,14 +35,12 @@ export default function CountryPage() {
       <HeaderCountry theme={theme} toggleTheme={toggleTheme} />
       <div>
         <div className={styles.countriesGrid}>
-          {countryTest && (
-            <CountryDetailsCard
-              key={state.cca3}
-              country={state}
-              isFavorite={favorites.includes(state.cca3)}
-              onToggleFavorite={toggleFavorite}
-            />
-          )}
+          <CountryDetailsCard
+            key={state.cca3}
+            country={state}
+            isFavorite={favoritesStorage.isFavorite(state.cca3)}
+            onToggleFavorite={toggleFavorite}
+          />
         </div>
       </div>
       <Footer theme={theme} />
