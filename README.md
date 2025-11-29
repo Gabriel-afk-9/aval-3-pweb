@@ -1,4 +1,4 @@
-# 🌍 Explorador de Países e Culturas
+# Explorador de Países e Culturas
 
 ## 📚 Sobre o Projeto
 
