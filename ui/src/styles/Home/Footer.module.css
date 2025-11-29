@@ -37,6 +37,28 @@
   animation: heartbeat 1.5s ease-in-out infinite;
 }
 
+.authors {
+  color: white;
+  display: flex;
+  white-space: nowrap;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.author {
+  font-size: 0.5rem;
+}
+
+.divisor {
+  background-color: white;
+  height: 1rem;
+  margin: 0.4rem;
+}
+
 @keyframes heartbeat {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.1); }
@@ -65,4 +87,14 @@
 .copyDark {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.7);
+}
+
+@media (min-width: 768px) {
+  .author {
+    font-size: 1rem;
+  }
+
+  .divisor {
+    margin: 1rem;
+  }
 }

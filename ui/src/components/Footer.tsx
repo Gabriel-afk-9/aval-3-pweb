@@ -21,8 +21,19 @@ export default function Footer({ theme }: FooterProps) {
             REST Countries API
           </a>
         </p>
+
+        <div className={styles.authors}>
+          <p className={styles.author}>Samuel Nascimento</p>
+          <hr className={styles.divisor}></hr>
+          <p className={styles.author}>Gabriel Lima</p>
+          <hr className={styles.divisor}></hr>
+          <p className={styles.author}>Gabriel Oliveira</p>
+          <hr className={styles.divisor}></hr>
+          <p className={styles.author}>Paulo Henrique</p>
+        </div>
+
         <p className={theme === "light" ? styles.copyright : styles.copyDark}>
-          © 2024 Global Insights
+          © 2025 Global Insights
         </p>
       </div>
     </footer>
