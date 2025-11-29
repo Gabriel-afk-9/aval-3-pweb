@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Heart, ChevronDown, ChevronUp, MapPin, Users, Globe2, Coins } from 'lucide-react';
 import type { Country } from '../services/countryService';
 import { formatters } from '../utils/formatters';
