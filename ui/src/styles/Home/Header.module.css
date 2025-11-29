@@ -115,7 +115,7 @@
 
 .themeToggle:hover {
   background: rgba(102, 126, 234, 0.2);
-  transform: rotate(15deg);
+  transform: rotate(45deg);
 }
 
 @media (max-width: 768px) {
