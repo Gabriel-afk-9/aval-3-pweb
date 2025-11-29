@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Search, Filter, X, Users, Github, Linkedin } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Users, Github, Linkedin } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CountryCard from '../components/CountryCard';
@@ -7,6 +7,7 @@ import type { Country } from '../services/countryService';
 import { countryService } from '../services/countryService';
 import { favoritesStorage } from '../utils/favoritesStorage';
 import styles from '../styles/Home.module.css';
+import SearchComponent from '../components/Search';
 
 const REGIONS = [
   { value: 'all', label: 'Todos os continentes' },
@@ -120,36 +121,14 @@ export default function HomePage() {
       <main className={styles.main}>
         {currentView === 'home' || currentView === 'favorites' ? (
           <>
-            <div className={styles.filtersSection}>
-              <div className={styles.searchBox}>
-                <Search size={20} />
-                <input
-                  type="text"
-                  placeholder="Buscar país por nome..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                {searchTerm && (
-                  <button className={styles.clearBtn} onClick={clearSearch}>
-                    <X size={18} />
-                  </button>
-                )}
-              </div>
-
-              <div className={styles.regionFilter}>
-                <Filter size={20} />
-                <select 
-                  value={selectedRegion}
-                  onChange={(e) => setSelectedRegion(e.target.value)}
-                >
-                  {REGIONS.map(region => (
-                    <option key={region.value} value={region.value}>
-                      {region.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
+            <SearchComponent
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            clearSearch={clearSearch}
+            selectedRegion={selectedRegion}
+            REGIONS={REGIONS}
+            setSelectedRegion={setSelectedRegion}
+            />
 
             <div className={styles.resultsInfo}>
               <p>
