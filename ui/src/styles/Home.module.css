@@ -339,12 +339,16 @@
   }
 
   .teamSection {
-    background-color: #1a1a2e;
+    background: white;
     padding: 3rem;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     animation: fadeIn 0.5s ease;
+  }
+
+  .container.dark .teamSection {
+    background: rgba(0, 0, 0, 0.03);
   }
 
   .teamSection h2 {
