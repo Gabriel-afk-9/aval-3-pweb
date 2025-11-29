@@ -31,7 +31,6 @@ export default function CountryDetailsCard({
     ? Object.values(country.currencies).map((c) => `${c.name} (${c.symbol})`)
     : [];
     
-  console.log(isFavorite);
   return (
     <div className={styles.card}>
 
@@ -44,6 +43,7 @@ export default function CountryDetailsCard({
       >
         <Heart size={20} color="currentColor" fill={isFavorite ? "currentColor" : "none"} />
       </button>
+      
       <div className={styles.cardHeader}>
         <img
           src={country.flags.png}
