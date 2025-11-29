@@ -1,4 +1,3 @@
-import React from 'react';
 import { Globe, Moon, Sun, Map, Heart, BookOpen, Users } from 'lucide-react';
 import styles from '../styles/Home/Header.module.css';
 
