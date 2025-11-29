@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Users, Github, Linkedin } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CountryCard from '../components/CountryCard';
@@ -172,7 +172,7 @@ export default function HomePage() {
         ) : currentView === 'about' ? (
           <div className={styles.aboutSection}>
             <h2>Sobre o Global Insights</h2>
-            <p>
+            <p className={styles.aboutText}>
               O Global Insights é uma aplicação web interativa desenvolvida para permitir que qualquer pessoa explore informações culturais, geográficas e políticas de países ao redor do mundo.
               Todos os dados exibidos são obtidos diretamente da <strong>REST Countries API</strong>, sem a necessidade de autenticação ou chaves de acesso.
             </p>
@@ -194,69 +194,103 @@ export default function HomePage() {
             </div>
           </div>
         ) : (
-          <div className={styles.aboutSection}>
+          <div className={styles.teamSection}>
             <h2>Nossa Equipe</h2>
-            <p>Conheça quem está por trás do desenvolvimento do Global Insights.</p>
+            <p className={styles.teamText}>Conheça quem está por trás do desenvolvimento do Global Insights.</p>
 
             <div className={styles.teamGrid}>
               
               <div className={styles.teamCard}>
-                <div className={styles.avatar}>
-                  <Users size={48} />
+                <div className={styles.teamMain}>
+                  <img
+                  src="https://avatars.githubusercontent.com/u/180032627?v=4"
+                  alt="avatar"
+                  className={styles.avatar}
+                  />
+                  <h3 className={styles.memberName}>Gabriel Lima</h3>
                 </div>
-                <h3 className={styles.memberName}>Gabriel Lima</h3>
-                <span className={styles.memberRole}>Desenvolvedor Full Stack</span>
+                <span className={styles.memberRole}>Desenvolvedor Frontend</span>
                 <p className={styles.memberBio}>
-                  Apaixonado por tecnologia e criação de interfaces modernas.
+                  Sou apaixonado por tecnologia e desenvolvimento frontend, com interesse também em backend.
                 </p>
                 <div className={styles.socialLinks}>
-                  <Github size={20} className={styles.socialIcon} />
-                  <Linkedin size={20} className={styles.socialIcon} />
+                  <a href="https://github.com/Gabriel-afk-9" title='Github'>
+                    <Github size={30} className={styles.socialIcon} />
+                  </a>
+                  <a href="https://www.linkedin.com/in/gabriel-lima-62a376326" title='Linkedin'>
+                    <Linkedin size={30} className={styles.socialIcon} />
+                  </a>
                 </div>
               </div>
 
               <div className={styles.teamCard}>
-                <div className={styles.avatar}>
-                  <Users size={48} />
+                <div className={styles.teamMain}>
+                  <img
+                  src="https://avatars.githubusercontent.com/u/199638000?v=4"
+                  alt="avatar"
+                  className={styles.avatar}
+                  /> 
+                  <h3 className={styles.memberName}>Samuel Nasc.</h3>
                 </div>
-                <h3 className={styles.memberName}>Samuel Nascimento</h3>
-                <span className={styles.memberRole}>UI Designer</span>
+                <span className={styles.memberRole}>Desenvolvedor Full Stack</span>
                 <p className={styles.memberBio}>
-                  Focado na experiência do usuário e design limpo.
+                  Apaixonado por criar aplicativos, jogos e experiências interativas.
                 </p>
                 <div className={styles.socialLinks}>
-                  <Github size={20} className={styles.socialIcon} />
-                  <Linkedin size={20} className={styles.socialIcon} />
+                  <a href="https://github.com/Zidan-09" title='Github'>
+                    <Github size={30} className={styles.socialIcon} />
+                  </a>
+                  <a href="https://www.linkedin.com/in/samuel-nascimento-fullstack/" title='Linkedin'>
+                    <Linkedin size={30} className={styles.socialIcon} />
+                  </a>
                 </div>
               </div>
 
               <div className={styles.teamCard}>
-                <div className={styles.avatar}>
-                  <Users size={48} />
+                <div className={styles.teamMain}>
+           
+                  <img
+                  src="https://avatars.githubusercontent.com/u/160227231?v=4"
+                  alt="avatar"
+                  className={styles.avatar}
+                  />
+                  
+                  <h3 className={styles.memberName}>Paulo Alves</h3>
                 </div>
-                <h3 className={styles.memberName}>Paulo Alves</h3>
-                <span className={styles.memberRole}>Desenvolvedor Full Stack</span>
+                <span className={styles.memberRole}>Desenvolvedor Frontend</span>
                 <p className={styles.memberBio}>
-                  Apaixonado por tecnologia e criação de interfaces modernas.
+                  Studying programming in Technology in Computer Systems at UESPI College.
                 </p>
                 <div className={styles.socialLinks}>
-                  <Github size={20} className={styles.socialIcon} />
-                  <Linkedin size={20} className={styles.socialIcon} />
+                  <a href="https://github.com/PaulEvezely" title='Github' className={styles.link}>
+                    <Github size={30} className={styles.socialIcon} />
+                  </a>
+                  <a href="" title='Linkedin' className={styles.link}>
+                    <Linkedin size={30} className={styles.socialIcon} />
+                  </a>
                 </div>
               </div>
 
               <div className={styles.teamCard}>
-                <div className={styles.avatar}>
-                  <Users size={48} />
+                <div className={styles.teamMain}>
+                  <img
+                  src="https://avatars.githubusercontent.com/u/157530699?v=4"
+                  alt="avatar"
+                  className={styles.avatar}
+                  />
+                  <h3 className={styles.memberName}>Gabriel Oliv.</h3>
                 </div>
-                <h3 className={styles.memberName}>Gabriel Oliveira</h3>
-                <span className={styles.memberRole}>Desenvolvedor Full Stack</span>
+                <span className={styles.memberRole}>Security Engineer</span>
                 <p className={styles.memberBio}>
-                  Apaixonado por tecnologia e criação de interfaces modernas.
+                  Full Stack Developer committed to building scalable, efficient solutions while also pursuing professional growth in the field of Cybersecurity.
                 </p>
                 <div className={styles.socialLinks}>
-                  <Github size={20} className={styles.socialIcon} />
-                  <Linkedin size={20} className={styles.socialIcon} />
+                  <a href="https://github.com/gaboliveira-alt" title='Github'>
+                    <Github size={30} className={styles.socialIcon} />
+                  </a>
+                  <a href="https://www.linkedin.com/in/gabriel-oliveira-pinto-75a480326/" title='Linkedin'>
+                    <Linkedin size={30} className={styles.socialIcon} />
+                  </a>
                 </div>
               </div>
 
