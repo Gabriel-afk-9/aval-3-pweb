@@ -12,6 +12,7 @@
   gap: 0.75rem;
   padding: 0.9rem 1.1rem;
   background: white;
+  color: black;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -50,7 +51,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(0, 0, 0, 0.5);
+  color: #000000;
 }
 
 .search_clearBtn:hover {
@@ -67,6 +68,7 @@
   gap: 0.75rem;
   padding: 0.9rem 1.1rem;
   background: white;
+  color: black;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
