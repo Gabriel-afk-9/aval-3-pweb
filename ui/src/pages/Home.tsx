@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Search, Filter, X } from 'lucide-react';
+import { Users, Github, Linkedin } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CountryCard from '../components/CountryCard';
 import type { Country } from '../services/countryService';
 import { countryService } from '../services/countryService';
 import { favoritesStorage } from '../utils/favoritesStorage';
-import styles from '../styles/HomePage.module.css';
+import styles from '../styles/Home.module.css';
+import SearchComponent from '../components/Search';
 
 const REGIONS = [
   { value: 'all', label: 'Todos os continentes' },
@@ -45,19 +46,19 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-  const timeoutId = setTimeout(() => {
-    filterCountries();
-  }, 500);
+    const timeoutId = setTimeout(() => {
+      filterCountries();
+    }, 500);
 
-  return () => clearTimeout(timeoutId);
-}, [searchTerm, selectedRegion, countries]);
+    return () => clearTimeout(timeoutId);
+  }, [searchTerm, selectedRegion, countries]);
 
   const loadCountries = async () => {
     setLoading(true);
     setError(null);
     try {
       const data = await countryService.getAllCountries();
-      if (data.length === 0) {
+      if (!data || data.length === 0) {
         setError('Nenhum país encontrado');
       }
       setCountries(data);
@@ -120,36 +121,14 @@ export default function HomePage() {
       <main className={styles.main}>
         {currentView === 'home' || currentView === 'favorites' ? (
           <>
-            <div className={styles.filtersSection}>
-              <div className={styles.searchBox}>
-                <Search size={20} />
-                <input
-                  type="text"
-                  placeholder="Buscar país por nome..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                {searchTerm && (
-                  <button className={styles.clearBtn} onClick={clearSearch}>
-                    <X size={18} />
-                  </button>
-                )}
-              </div>
-
-              <div className={styles.regionFilter}>
-                <Filter size={20} />
-                <select 
-                  value={selectedRegion}
-                  onChange={(e) => setSelectedRegion(e.target.value)}
-                >
-                  {REGIONS.map(region => (
-                    <option key={region.value} value={region.value}>
-                      {region.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
+            <SearchComponent
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            clearSearch={clearSearch}
+            selectedRegion={selectedRegion}
+            REGIONS={REGIONS}
+            setSelectedRegion={setSelectedRegion}
+            />
 
             <div className={styles.resultsInfo}>
               <p>
@@ -190,25 +169,22 @@ export default function HomePage() {
               </div>
             )}
           </>
-        ) : (
+        ) : currentView === 'about' ? (
           <div className={styles.aboutSection}>
             <h2>Sobre o Global Insights</h2>
             <p>
-              Explore informações detalhadas sobre todos os países do mundo usando a 
-              <strong> REST Countries API</strong>. Busque por nome, filtre por continente e salve seus 
-              países favoritos diretamente no seu navegador!
+              O Global Insights é uma aplicação web interativa desenvolvida para permitir que qualquer pessoa explore informações culturais, geográficas e políticas de países ao redor do mundo.
+              Todos os dados exibidos são obtidos diretamente da <strong>REST Countries API</strong>, sem a necessidade de autenticação ou chaves de acesso.
             </p>
             
             <div className={styles.features}>
               <h3>Funcionalidades:</h3>
               <ul>
-                <li> <strong>Busca em tempo real</strong> por nome do país</li>
-                <li> <strong>Filtro por continente</strong> (África, Américas, Ásia, Europa, Oceania)</li>
-                <li> <strong>Sistema de favoritos</strong> persistente no navegador</li>
-                <li> <strong>Tema claro/escuro</strong> personalizável</li>
-                <li> <strong>Informações detalhadas:</strong> população, área, idiomas, moedas e mais</li>
-                <li> <strong>Design responsivo</strong> para todos os dispositivos</li>
-                <li> <strong>Link direto</strong> para Google Maps</li>
+                <li> <strong>Buscar países por nome</strong></li>
+                <li> <strong>Filtrar países por continente</strong></li>
+                <li> <strong>Visualizar detalhes completos</strong></li>
+                <li> <strong>Tema claro/escuro</strong></li>
+                <li> <strong>Salvar países nos favoritos</strong></li>
               </ul>
             </div>
 
@@ -217,10 +193,79 @@ export default function HomePage() {
               <p>React, TypeScript, CSS Modules, REST Countries API</p>
             </div>
           </div>
+        ) : (
+          <div className={styles.aboutSection}>
+            <h2>Nossa Equipe</h2>
+            <p>Conheça quem está por trás do desenvolvimento do Global Insights.</p>
+
+            <div className={styles.teamGrid}>
+              
+              <div className={styles.teamCard}>
+                <div className={styles.avatar}>
+                  <Users size={48} />
+                </div>
+                <h3 className={styles.memberName}>Gabriel Lima</h3>
+                <span className={styles.memberRole}>Desenvolvedor Full Stack</span>
+                <p className={styles.memberBio}>
+                  Apaixonado por tecnologia e criação de interfaces modernas.
+                </p>
+                <div className={styles.socialLinks}>
+                  <Github size={20} className={styles.socialIcon} />
+                  <Linkedin size={20} className={styles.socialIcon} />
+                </div>
+              </div>
+
+              <div className={styles.teamCard}>
+                <div className={styles.avatar}>
+                  <Users size={48} />
+                </div>
+                <h3 className={styles.memberName}>Samuel Nascimento</h3>
+                <span className={styles.memberRole}>UI Designer</span>
+                <p className={styles.memberBio}>
+                  Focado na experiência do usuário e design limpo.
+                </p>
+                <div className={styles.socialLinks}>
+                  <Github size={20} className={styles.socialIcon} />
+                  <Linkedin size={20} className={styles.socialIcon} />
+                </div>
+              </div>
+
+              <div className={styles.teamCard}>
+                <div className={styles.avatar}>
+                  <Users size={48} />
+                </div>
+                <h3 className={styles.memberName}>Paulo Alves</h3>
+                <span className={styles.memberRole}>Desenvolvedor Full Stack</span>
+                <p className={styles.memberBio}>
+                  Apaixonado por tecnologia e criação de interfaces modernas.
+                </p>
+                <div className={styles.socialLinks}>
+                  <Github size={20} className={styles.socialIcon} />
+                  <Linkedin size={20} className={styles.socialIcon} />
+                </div>
+              </div>
+
+              <div className={styles.teamCard}>
+                <div className={styles.avatar}>
+                  <Users size={48} />
+                </div>
+                <h3 className={styles.memberName}>Gabriel Oliveira</h3>
+                <span className={styles.memberRole}>Desenvolvedor Full Stack</span>
+                <p className={styles.memberBio}>
+                  Apaixonado por tecnologia e criação de interfaces modernas.
+                </p>
+                <div className={styles.socialLinks}>
+                  <Github size={20} className={styles.socialIcon} />
+                  <Linkedin size={20} className={styles.socialIcon} />
+                </div>
+              </div>
+
+            </div>
+          </div>
         )}
       </main>
 
-      <Footer theme={theme} />
+      <Footer theme={theme}/>
     </div>
   );
 }

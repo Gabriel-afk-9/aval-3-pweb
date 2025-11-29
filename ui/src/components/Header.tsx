@@ -1,5 +1,4 @@
-import React from 'react';
-import { Globe, Moon, Sun, Map, Heart, BookOpen } from 'lucide-react';
+import { Globe, Moon, Sun, Map, Heart, BookOpen, Users } from 'lucide-react';
 import styles from '../styles/Home/Header.module.css';
 
 interface HeaderProps {
@@ -38,6 +37,13 @@ export default function Header({ currentView, setView, theme, toggleTheme, favor
               <span className={styles.badge}>{favoritesCount}</span>
             )}
           </button>
+          <button 
+            className={`${styles.navLink} ${currentView === 'team' ? styles.active : ''}`}
+            onClick={() => setView('team')}
+          >
+            <Users size={18} />
+            <span>Equipe</span>
+          </button>
 
           <button 
             className={`${styles.navLink} ${currentView === 'about' ? styles.active : ''}`}
@@ -54,6 +60,7 @@ export default function Header({ currentView, setView, theme, toggleTheme, favor
           >
             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
           </button>
+
         </nav>
       </div>
     </header>
