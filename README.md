@@ -50,7 +50,7 @@ Como este projeto utiliza **React + Vite**, o processo é diferente de abrir ape
     ```
 
 4.  **Ou acesse esse link:**
-    * `https://aval-3-pweb.vercel.app/`
+    * https://aval-3-pweb.vercel.app/
 
 ---
 
