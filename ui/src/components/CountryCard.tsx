@@ -3,6 +3,7 @@ import { Heart, ChevronDown, ChevronUp, MapPin, Users, Globe2, Coins } from 'luc
 import type { Country } from '../services/countryService';
 import { formatters } from '../utils/formatters';
 import styles from '../styles/Home/CountryCard.module.css';
+import { useNavigate } from 'react-router-dom';
 
 interface CountryCardProps {
   country: Country;
@@ -12,6 +13,7 @@ interface CountryCardProps {
 
 export default function CountryCard({ country, isFavorite, onToggleFavorite }: CountryCardProps) {
   const [showDetails, setShowDetails] = useState(false);
+  const navigate = useNavigate();
 
   const languages = country.languages 
     ? Object.values(country.languages) 
@@ -60,7 +62,7 @@ export default function CountryCard({ country, isFavorite, onToggleFavorite }: C
 
         <button 
           className={styles.detailsBtn}
-          onClick={() => setShowDetails(!showDetails)}
+          onClick={() => navigate(`/Country`, { state: country })}
         >
           {showDetails ? (
             <>
