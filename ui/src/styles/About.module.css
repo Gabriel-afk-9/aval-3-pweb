@@ -1,0 +1,102 @@
+.aboutSection {
+  background: white;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.aboutSection.dark {
+  background: rgba(30, 30, 50, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.aboutSection h2 {
+  color: #667eea;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.aboutSection.dark h2 {
+  color: #9fa8da;
+}
+
+.aboutText {
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.aboutSection.dark .aboutText {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.features, .techStack {
+  background: rgba(102, 126, 234, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.aboutSection.dark .features,
+.aboutSection.dark .techStack {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.features h3, .techStack h3 {
+  margin-bottom: 1rem;
+  color: #667eea;
+  font-size: 1.5rem;
+}
+
+.aboutSection.dark .features h3, 
+.aboutSection.dark .techStack h3 {
+  color: #9fa8da;
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features li {
+  padding: 0.75rem 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #2c3e50;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.features li:last-child {
+  border-bottom: none;
+}
+
+.aboutSection.dark .features li {
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.techStack p {
+  font-size: 1.05rem;
+  color: #2c3e50;
+}
+
+.aboutSection.dark .techStack p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dark {
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .aboutSection { padding: 2rem 1.5rem; }
+  .aboutSection h2 { font-size: 2rem; }
+}

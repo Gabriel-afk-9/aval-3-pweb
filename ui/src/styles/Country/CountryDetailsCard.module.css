@@ -1,5 +1,5 @@
 .card {
-  background: #c2c7ee;
+  background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -7,15 +7,22 @@
   display: flex;
   flex-direction: column;
   width: 20rem;
-  margin: 2rem auto;
+  margin: 0 auto;
   flex-grow: 1;
   position: relative;
+  color: #1a1a1a;
+}
+
+.card[data-theme="dark"] {
+  background: #1a1a2e;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .cardHeader {
-    padding: 0 2rem 2rem 2rem;
-    display: flex;
-    justify-content: center;
+  padding: 2rem 2rem 0 2rem;
+  display: flex;
+  justify-content: center;
   position: relative;
   overflow: hidden;
 }
@@ -25,15 +32,17 @@
   height: auto;
   object-fit: cover;
   border-radius: 9px;
-  box-shadow: 0 9px 22px 0 rgba(92, 118, 231, 0.7);
+  box-shadow: 0 9px 22px 0 rgba(92, 118, 231, 0.4);
 }
 
-
+.card[data-theme="dark"] .cardHeader img {
+  box-shadow: 0 9px 22px 0 rgba(0, 0, 0, 0.6);
+}
 
 .favoriteBt {
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
+  top: 1.5rem;
+  right: 1.5rem;
   background: white;
   border: none;
   border-radius: 50%;
@@ -47,7 +56,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.2s;
   z-index: 10;
-  
 }
 
 .favoriteBt:hover {
@@ -59,116 +67,130 @@
   background: #ffe5e5;
 }
 
+.card[data-theme="dark"] .favoriteBt {
+  background: rgba(255, 255, 255, 0.1);
+  color: #9fa8da;
+}
+
+.card[data-theme="dark"] .favoriteBt.active {
+  background: #451a1a;
+  color: #ff6b6b;
+}
+
 .cardBody {
-  padding: 1.5rem;
+  padding: 2rem;
   flex: 1;
   display: flex;
   flex-direction: column;
+  background: transparent;
+  animation: fadeIn 0.4s ease;
 }
 
 .cardBody h3 {
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
+  margin-bottom: 1.3rem;
+  font-size: 1.7rem;
   color: #2c3e50;
-  font-weight: 700;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.card[data-theme="dark"] .cardBody h3 {
+  color: #fff;
 }
 
 .cardInfo {
-  flex: 1;
-  margin-bottom: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.3rem;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .infoItem {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-  font-size: 0.95rem;
-  color: #555;
+  gap: 0.6rem;
+  padding: 1.4rem 0.8rem;
+  background: #eef0ff; 
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  color: #444;
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.card[data-theme="dark"] .infoItem {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ccc;
+}
+
+.infoItem:hover {
+  transform: translateY(-2px);
+  background: #daddff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.card[data-theme="dark"] .infoItem:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .infoItem svg {
-  margin-top: 0.2rem;
   flex-shrink: 0;
   color: #667eea;
+  filter: drop-shadow(0 0 4px rgba(106, 111, 232, 0.4));
+}
+
+.card[data-theme="dark"] .infoItem svg {
+  color: #9fa8da;
 }
 
 .infoItem strong {
   color: #2c3e50;
+  font-weight: 700;
 }
 
-
-.detailsBtn:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+.card[data-theme="dark"] .infoItem strong {
+  color: #fff;
 }
 
-.cardDetails {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  animation: slideDown 0.3s ease;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.detailRow {
+.mapBtn {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.detailRow svg {
-  color: #667eea;
-  flex-shrink: 0;
-}
-
-.detailRow strong {
-  color: #2c3e50;
-  min-width: 100px;
-}
-
-.detailRow span {
-  flex: 1;
-}
-
-.mapLink {
-  display: inline-block;
-  margin-top: 0.5rem;
-  color: #667eea;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;  
+  width: fit-content;
+  min-width: 200px;
+  margin: 1.5rem auto 0 auto;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem;
-  transition: color 0.2s;
+  font-size: 1rem;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.mapLink:hover {
-  color: #764ba2;
-  text-decoration: underline;
+.mapBtn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
 }
 
-@media (min-width: 768px) {
-    .card{
-        width: 40rem;
-        padding: 30px;
-    }
+.card[data-theme="dark"] .mapBtn {
+  background: linear-gradient(135deg, #4f64c4 0%, #5b3a7d 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
-    .favoriteBt{
-        position: relative;
-    }
+.card[data-theme="dark"] .mapBtn:hover {
+  filter: brightness(1.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

@@ -6,6 +6,8 @@ interface FooterProps {
 }
 
 export default function Footer({ theme }: FooterProps) {
+  const divisorClass = theme === "light" ? styles.divisor : styles.divisorDark;
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -22,13 +24,16 @@ export default function Footer({ theme }: FooterProps) {
           </a>
         </p>
 
-        <div className={styles.authors}>
+        <div className={`${styles.authors} ${theme === 'dark' ? styles.authorsDark : ''}`}>
           <p className={styles.author}>Samuel Nascimento</p>
-          <hr className={styles.divisor}></hr>
+          <hr className={divisorClass}></hr>
+          
           <p className={styles.author}>Gabriel Lima</p>
-          <hr className={styles.divisor}></hr>
+          <hr className={divisorClass}></hr>
+          
           <p className={styles.author}>Gabriel Oliveira</p>
-          <hr className={styles.divisor}></hr>
+          <hr className={divisorClass}></hr>
+          
           <p className={styles.author}>Paulo Henrique</p>
         </div>
 

@@ -31,6 +31,8 @@
   cursor: pointer;
   transition: transform 0.2s;
   user-select: none;
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo:hover {
@@ -74,6 +76,7 @@
   font-size: 0.95rem;
   font-weight: 500;
   position: relative;
+  text-decoration: none;
 }
 
 .navLink:hover {
@@ -125,22 +128,8 @@
     gap: 1rem;
     padding: 1rem;
   }
-
-  .logo h1 {
-    font-size: 1.25rem;
-  }
-
-  .nav {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .navLink span {
-    display: none;
-  }
-
-  .navLink {
-    padding: 0.6rem;
-  }
+  .logo h1 { font-size: 1.25rem; }
+  .nav { width: 100%; justify-content: center; flex-wrap: wrap; }
+  .navLink span { display: none; }
+  .navLink { padding: 0.6rem; }
 }

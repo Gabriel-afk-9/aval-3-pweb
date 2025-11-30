@@ -94,28 +94,12 @@
 }
 
 @media (min-width: 768px) {
-  .search_filtersSection {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .search_searchBox {
-    flex: 1;
-    min-width: 300px;
-  }
-
-  .search_regionFilter {
-    min-width: 240px;
-  }
+  .search_filtersSection { flex-direction: row; align-items: center; }
+  .search_searchBox { flex: 1; min-width: 300px; }
+  .search_regionFilter { min-width: 240px; }
 }
 
 @media (min-width: 1024px) {
-  .search_filtersSection {
-    gap: 1.25rem;
-  }
-
-  .search_searchBox,
-  .search_regionFilter {
-    padding: 1rem 1.25rem;
-  }
+  .search_filtersSection { gap: 1.25rem; }
+  .search_searchBox, .search_regionFilter { padding: 1rem 1.25rem; }
 }

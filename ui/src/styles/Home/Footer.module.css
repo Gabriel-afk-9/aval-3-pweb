@@ -38,7 +38,7 @@
 }
 
 .authors {
-  color: white;
+  color: rgba(0, 0, 0, 0.7); 
   display: flex;
   white-space: nowrap;
   flex-wrap: wrap;
@@ -49,13 +49,25 @@
   align-items: center;
 }
 
+.authorsDark {
+  color: white;
+}
+
 .author {
   font-size: 0.5rem;
 }
 
 .divisor {
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.2);
   height: 1rem;
+  width: 1px;
+  margin: 0.4rem;
+}
+
+.divisorDark {
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 1rem;
+  width: 1px;
   margin: 0.4rem;
 }
 
@@ -94,7 +106,7 @@
     font-size: 1rem;
   }
 
-  .divisor {
+  .divisor, .divisorDark {
     margin: 1rem;
   }
 }
