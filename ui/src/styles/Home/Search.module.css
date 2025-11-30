@@ -133,14 +133,8 @@
     width: 24px;
     height: 24px;
   }
-}
 
-@media (min-width: 768px) {
-  .search_filtersSection {
-    gap: 1.25rem;
-  }
-
-  .search_searchBox, .search_regionFilter {
-    padding: 1rem 1.25rem;
+  .search_regionFilter {
+    width: 20%;
   }
 }

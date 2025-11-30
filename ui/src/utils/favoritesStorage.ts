@@ -40,11 +40,11 @@ export const favoritesStorage = {
   toggleFavorite(countryCode: string): string[] {
     const favorites = this.getFavorites();
 
-    favorites.includes(countryCode)
-      ? this.removeFavorite(countryCode)
-      : this.addFavorite(countryCode);
-
-    return favorites;
+    if (favorites.includes(countryCode)) {
+      return this.removeFavorite(countryCode);
+    } else {
+      return this.addFavorite(countryCode);
+    }
   },
 
   isFavorite(countryCode: string): boolean {
