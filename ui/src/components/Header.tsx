@@ -1,57 +1,66 @@
+import { Link, NavLink } from 'react-router-dom';
 import { Globe, Moon, Sun, Map, Heart, BookOpen, Users } from 'lucide-react';
 import styles from '../styles/Home/Header.module.css';
 
 interface HeaderProps {
-  currentView: string;
-  setView: (view: string) => void;
   theme: string;
   toggleTheme: () => void;
   favoritesCount?: number;
 }
 
-export default function Header({ currentView, setView, theme, toggleTheme, favoritesCount = 0 }: HeaderProps) {
+export default function Header({ theme, toggleTheme, favoritesCount = 0 }: HeaderProps) {
   return (
     <header className={`${styles.header} ${theme === 'dark' ? styles.dark : ''}`}>
       <div className={styles.container}>
-        <div className={styles.logo} onClick={() => setView('home')}>
+        <Link to="/" className={styles.logo} style={{ textDecoration: 'none', color: 'inherit' }}>
           <Globe size={24} className={styles.icon} />
           <h1>Global Insights</h1>
-        </div>
+        </Link>
 
-        <nav className={styles.nav}>
-          <button 
-            className={`${styles.navLink} ${currentView === 'home' ? styles.active : ''}`}
-            onClick={() => setView('home')}
+        <nav className={styles.nav}>          
+          <NavLink 
+            to="/" 
+            end
+            className={({ isActive }) => 
+              `${styles.navLink} ${isActive ? styles.active : ''}`
+            }
           >
             <Map size={18} />
             <span>Explorar</span>
-          </button>
+          </NavLink>
 
-          <button 
-            className={`${styles.navLink} ${currentView === 'favorites' ? styles.active : ''}`}
-            onClick={() => setView('favorites')}
+          <NavLink 
+            to="/favorites" 
+            className={({ isActive }) => 
+              `${styles.navLink} ${isActive ? styles.active : ''}`
+            }
           >
             <Heart size={18} />
             <span>Favoritos</span>
             {favoritesCount > 0 && (
               <span className={styles.badge}>{favoritesCount}</span>
             )}
-          </button>
-          <button 
-            className={`${styles.navLink} ${currentView === 'team' ? styles.active : ''}`}
-            onClick={() => setView('team')}
+          </NavLink>
+
+          <NavLink 
+            to="/team" 
+            className={({ isActive }) => 
+              `${styles.navLink} ${isActive ? styles.active : ''}`
+            }
           >
             <Users size={18} />
             <span>Equipe</span>
-          </button>
+          </NavLink>
 
-          <button 
-            className={`${styles.navLink} ${currentView === 'about' ? styles.active : ''}`}
-            onClick={() => setView('about')}
+          <NavLink 
+            to="/about" 
+            className={({ isActive }) => 
+              `${styles.navLink} ${isActive ? styles.active : ''}`
+            }
           >
             <BookOpen size={18} />
             <span>Sobre</span>
-          </button>
+          </NavLink>
 
           <button 
             className={styles.themeToggle} 

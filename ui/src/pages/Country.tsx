@@ -1,49 +1,37 @@
 import { useState, useEffect } from "react";
-import HeaderCountry from "../components/HeaderCountry";
-import Footer from "../components/Footer";
-import CountryDetailsCard from "../components/CountryDeatailsCard";
-import styles from "../styles/CountryPage.module.css";
+import { useLocation, Navigate, useOutletContext } from "react-router-dom";
+import CountryDetailsCard from "../components/CountryDetailsCard";
 import { favoritesStorage } from "../utils/favoritesStorage";
-import { useLocation } from "react-router-dom";
+import styles from "../styles/Country.module.css";
 
 export default function CountryPage() {
-  const [favorites, setFavorites] = useState<string[]>([]);
   const { state } = useLocation();
+  const { theme } = useOutletContext<{ theme: string }>();
+  const [isFav, setIsFav] = useState(false);
 
-  const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem("theme");
-    return saved || "light";
-  });
+  const isDarkMode = theme === "dark";
 
-  const toggleFavorite = (countryCode: string) => {
-    const newFavorites = favoritesStorage.toggleFavorite(countryCode);
-    setFavorites(newFavorites);
-  };
+  if (!state) {
+    return <Navigate to="/" replace />;
+  }
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    setIsFav(favoritesStorage.isFavorite(state.cca3));
+  }, [state.cca3]);
+
+  const toggleFavorite = (countryCode: string) => {
+    favoritesStorage.toggleFavorite(countryCode);
+    setIsFav(!isFav);
   };
 
   return (
-    <div
-      className={`${styles.container} ${theme === "dark" ? styles.dark : ""}`}
-    >
-      <HeaderCountry theme={theme} toggleTheme={toggleTheme} />
-      <div>
-        <div className={styles.countriesGrid}>
-          <CountryDetailsCard
-            key={state.cca3}
-            country={state}
-            isFavorite={favoritesStorage.isFavorite(state.cca3)}
-            onToggleFavorite={toggleFavorite}
-          />
-        </div>
-      </div>
-      <Footer theme={theme} />
+    <div className={styles.detailsContainer} data-theme={theme}>
+      <CountryDetailsCard
+        country={state}
+        isFavorite={isFav}
+        onToggleFavorite={toggleFavorite}
+        isDarkMode={isDarkMode}
+      />
     </div>
   );
 }
