@@ -4,15 +4,12 @@ export const formatters = {
   },
 
   population(pop: number): string {
-    if (pop >= 1000000000) {
-      return `${(pop / 1000000000).toFixed(2)} bilhões`;
-    }
-    if (pop >= 1000000) {
-      return `${(pop / 1000000).toFixed(2)} milhões`;
-    }
-    if (pop >= 1000) {
-      return `${(pop / 1000).toFixed(2)} mil`;
-    }
+    if (pop >= 1000000000) return `${(pop / 1000000000).toFixed(2)} bilhões`;
+    
+    if (pop >= 1000000) return `${(pop / 1000000).toFixed(2)} milhões`;
+    
+    if (pop >= 1000) return `${(pop / 1000).toFixed(2)} mil`;
+    
     return pop.toString();
   },
 
@@ -24,6 +21,7 @@ export const formatters = {
     if (items.length === 0) return 'N/A';
     if (items.length === 1) return items[0];
     if (items.length === 2) return `${items[0]} e ${items[1]}`;
+    
     return `${items.slice(0, -1).join(', ')} e ${items[items.length - 1]}`;
   }
 };
