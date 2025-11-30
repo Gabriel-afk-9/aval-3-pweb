@@ -70,7 +70,7 @@
 }
 
 .card[data-theme="dark"] .favoriteBt {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(30, 30, 40, 0.8);
   color: #9fa8da;
 }
 

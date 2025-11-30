@@ -84,7 +84,7 @@
 }
 
 [data-theme="dark"] .favoriteBtn.active {
-  background: rgba(255, 255, 255, 0.8);
+  background: #451a1a;
   color: #ff6b6b;
 }
 
@@ -101,6 +101,11 @@
   color: #2c3e50;
   font-weight: 700;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 100%;
 }
 
 [data-theme="dark"] .cardBody h3 {
