@@ -103,7 +103,7 @@ class CountryService {
 
     try {
       const response = await this.fetchWithRetry(
-        `${BASE_URL}/name/${encodeURIComponent(name)}`
+        `${BASE_URL}/translation/${encodeURIComponent(name)}`
       );
 
       if (response.status === 404) return [];
