@@ -11,7 +11,7 @@ export default function Select({ selectedRegion, setSelectedRegion }: SelectProp
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const REGIONS = [
-    { value: 'all', label: 'Todos os continentes' },
+    { value: 'all', label: 'Todos os Continentes' },
     { value: 'Africa', label: 'África' },
     { value: 'Americas', label: 'Américas' },
     { value: 'Asia', label: 'Ásia' },
@@ -40,9 +40,12 @@ export default function Select({ selectedRegion, setSelectedRegion }: SelectProp
         >
           {REGIONS.map((region) => (
             <p
-            onClick={() => handleSelect(region)}
-            className={styles.option}
-            >{region.label}</p>
+              key={region.value}
+              onClick={() => handleSelect(region)}
+              className={styles.option}
+            >
+              {region.label}
+            </p>
           ))}
         </div>
       )}

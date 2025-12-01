@@ -9,9 +9,11 @@ import {
   Landmark,
   Clock,
   Heart,
-  ExternalLink
+  ExternalLink,
+  ChevronLeft
 } from "lucide-react";
 import type { Country } from "../services/countryService";
+import { useNavigate } from "react-router-dom";
 import { formatters } from "../utils/formatters";
 import styles from "../styles/Country/CountryDetailsCard.module.css";
 
@@ -28,6 +30,7 @@ export default function CountryDetailsCard({
   onToggleFavorite,
   isDarkMode,
 }: CountryCardProps) {
+  const navigate = useNavigate();
   const languages = country.languages ? Object.values(country.languages) : [];
 
   const currencies = country.currencies
@@ -39,6 +42,13 @@ export default function CountryDetailsCard({
       className={styles.card} 
       data-theme={isDarkMode ? "dark" : "light"}
     >
+      <button 
+        className={styles.backBtn} 
+        onClick={() => navigate(-1)} 
+        aria-label="Voltar"
+      >
+        <ChevronLeft size={24} />
+      </button>
 
       <button
         className={`${styles.favoriteBt} ${isFavorite ? styles.active : ""}`}

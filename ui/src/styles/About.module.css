@@ -39,7 +39,8 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-.features, .techStack {
+.features,
+.techStack {
   background: rgba(102, 126, 234, 0.1);
   padding: 1.5rem;
   border-radius: 8px;
@@ -52,14 +53,15 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.features h3, .techStack h3 {
+.features h3,
+.techStack h3 {
   margin-bottom: 0.75rem;
   color: #667eea;
   font-size: 1.25rem;
   text-align: center;
 }
 
-.aboutSection.dark .features h3, 
+.aboutSection.dark .features h3,
 .aboutSection.dark .techStack h3 {
   color: #9fa8da;
 }
@@ -74,7 +76,7 @@
   font-size: 1rem;
   line-height: 1.5;
   color: #2c3e50;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
@@ -84,7 +86,7 @@
 
 .aboutSection.dark .features li {
   color: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .techStack p {
@@ -121,13 +123,15 @@
     margin-bottom: 2rem;
   }
 
-  .features, .techStack {
+  .features,
+  .techStack {
     padding: 2rem;
     border-radius: 12px;
     margin-bottom: 2rem;
   }
 
-  .features h3, .techStack h3 {
+  .features h3,
+  .techStack h3 {
     font-size: 1.5rem;
     text-align: left;
   }

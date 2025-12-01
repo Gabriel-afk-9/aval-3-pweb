@@ -79,8 +79,13 @@
 }
 
 @keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .link {
@@ -144,7 +149,8 @@
     font-size: 1rem;
   }
 
-  .divisor, .divisorDark {
+  .divisor,
+  .divisorDark {
     height: 1rem;
     margin: 0.4rem;
   }
