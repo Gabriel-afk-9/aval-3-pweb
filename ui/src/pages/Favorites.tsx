@@ -6,22 +6,13 @@ import { countryService, type Country } from '../services/countryService';
 import { favoritesStorage } from '../utils/favoritesStorage';
 import styles from '../styles/Shared.module.css';
 
-const REGIONS = [
-  { value: 'all', label: 'Todos os continentes' },
-  { value: 'Africa', label: 'África' },
-  { value: 'Americas', label: 'Américas' },
-  { value: 'Asia', label: 'Ásia' },
-  { value: 'Europe', label: 'Europa' },
-  { value: 'Oceania', label: 'Oceania' },
-];
-
 export default function FavoritesPage() {
   const { theme } = useOutletContext<{ theme: string }>();
   const [favorites, setFavorites] = useState<string[]>(favoritesStorage.getFavorites());
   const [favoriteCountries, setFavoriteCountries] = useState<Country[]>([]);
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedRegion, setSelectedRegion] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');  
+  const [selectedRegion, setSelectedRegion] = useState({ value: 'all', label: 'Todos os Continentes' });
 
   useEffect(() => {
     const loadFavoritesData = async () => {
@@ -54,7 +45,9 @@ export default function FavoritesPage() {
   const filteredFavorites = favoriteCountries.filter(country => {
     const matchesSearch = country.name.common.toLowerCase().includes(searchTerm.toLowerCase()) || 
                           country.name.official.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesRegion = selectedRegion === 'all' || country.region === selectedRegion;
+    
+    const matchesRegion = selectedRegion.value === 'all' || country.region === selectedRegion.value;
+    
     return matchesSearch && matchesRegion;
   });
 
@@ -65,7 +58,6 @@ export default function FavoritesPage() {
         setSearchTerm={setSearchTerm}
         clearSearch={clearSearch}
         selectedRegion={selectedRegion}
-        REGIONS={REGIONS}
         setSelectedRegion={setSelectedRegion}
       />
 
@@ -91,9 +83,6 @@ export default function FavoritesPage() {
       ) : filteredFavorites.length === 0 ? (
         <div className={`${styles.noResults} ${theme === 'dark' ? styles.dark : ''}`}>
            <p>Nenhum favorito encontrado para esta busca.</p>
-           <button onClick={clearSearch} style={{ marginTop: '1rem', padding: '0.5rem 1rem', cursor: 'pointer' }}>
-             Limpar busca
-           </button>
         </div>
       ) : (
         <div className={styles.countriesGrid}>

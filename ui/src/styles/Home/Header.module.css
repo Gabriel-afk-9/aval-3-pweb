@@ -24,6 +24,10 @@
   gap: 1rem;
 }
 
+.navLink span:not(.badge) {
+  display: none;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -36,7 +40,7 @@
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 
 .logo h1 {
@@ -59,7 +63,7 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
@@ -69,7 +73,7 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem 1rem;
   border: none;
   background: transparent;
   color: inherit;
@@ -78,7 +82,6 @@
   transition: all 0.2s;
   font-size: 0.85rem;
   font-weight: 500;
-  position: relative;
   text-decoration: none;
   position: relative;
 }
@@ -93,9 +96,9 @@
 }
 
 .badge {
-  position: absolute; 
-  top: -4px;
-  right: -4px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
   background: #e74c3c;
   color: white;
   border-radius: 10px;
@@ -116,9 +119,8 @@
   color: #ffffff;
 }
 
-
 .themeToggle {
-  padding: 0.5rem;
+  padding: 0.7rem;
   border: none;
   background: rgba(102, 126, 234, 0.1);
   color: inherit;
@@ -149,6 +151,10 @@
     gap: 2rem;
   }
 
+  .navLink span:not(.badge) {
+    display: inline;
+  }
+
   .logo {
     gap: 0.75rem;
   }
@@ -169,28 +175,23 @@
     font-size: 0.95rem;
   }
 
-  .navLink span {
-    display: inline;
-  }
-
   .badge {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  
-  background: #e74c3c;
-  color: white;
-  border-radius: 10px;
-  min-width: 18px; 
-  height: 18px;
-  padding: 0 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  line-height: 1;
-  z-index: 10;
-}
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #e74c3c;
+    color: white;
+    border-radius: 10px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    line-height: 1;
+    z-index: 10;
+  }
 
   .themeToggle {
     padding: 0.6rem;
