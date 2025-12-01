@@ -7,15 +7,6 @@ import { countryService, type Country } from '../services/countryService';
 import { favoritesStorage } from '../utils/favoritesStorage';
 import styles from '../styles/Shared.module.css';
 
-const REGIONS = [
-  { value: 'all', label: 'Todos os continentes' },
-  { value: 'Africa', label: 'África' },
-  { value: 'Americas', label: 'Américas' },
-  { value: 'Asia', label: 'Ásia' },
-  { value: 'Europe', label: 'Europa' },
-  { value: 'Oceania', label: 'Oceania' },
-];
-
 const ITEMS_PER_PAGE = 10;
 
 export default function HomePage() {
@@ -25,7 +16,7 @@ export default function HomePage() {
   const [countries, setCountries] = useState<Country[]>([]);
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedRegion, setSelectedRegion] = useState('all');
+  const [selectedRegion, setSelectedRegion] = useState<{ value: string, label: string}>({ value: "all", label: "Todos os Continentes"});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<string[]>(favoritesStorage.getFavorites());
@@ -60,8 +51,8 @@ export default function HomePage() {
         } catch { result = []; }
       }
       
-      if (selectedRegion !== 'all') {
-        result = result.filter(c => c.region === selectedRegion);
+      if (selectedRegion.value !== 'all') {
+        result = result.filter(c => c.region === selectedRegion.value);
       }
       
       setFilteredCountries(result);
@@ -99,7 +90,6 @@ export default function HomePage() {
         setSearchTerm={setSearchTerm}
         clearSearch={() => setSearchTerm('')}
         selectedRegion={selectedRegion}
-        REGIONS={REGIONS}
         setSelectedRegion={setSelectedRegion}
       />
 

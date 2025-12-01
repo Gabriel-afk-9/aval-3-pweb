@@ -1,14 +1,14 @@
 import type { Dispatch, SetStateAction } from "react";
-import { Search, Filter, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import styles from "../styles/Home/Search.module.css";
+import Select from "./Select";
 
 interface SearchComponentProps {
   searchTerm: string;
   setSearchTerm: Dispatch<SetStateAction<string>>;
   clearSearch: () => void;
-  selectedRegion: string;
-  REGIONS: { value: string; label: string }[];
-  setSelectedRegion: Dispatch<SetStateAction<string>>;
+  selectedRegion: { value: string, label: string };
+  setSelectedRegion: Dispatch<SetStateAction<{ value: string, label: string }>>;
 }
 
 export default function SearchComponent({
@@ -16,7 +16,6 @@ export default function SearchComponent({
   setSearchTerm,
   clearSearch,
   selectedRegion,
-  REGIONS,
   setSelectedRegion,
 }: SearchComponentProps) {
   return (
@@ -41,20 +40,10 @@ export default function SearchComponent({
         )}
       </div>
 
-      <div className={styles.search_regionFilter}>
-        <Filter size={20} />
-        <select
-          title="button"
-          value={selectedRegion}
-          onChange={(e) => setSelectedRegion(e.target.value)}
-        >
-          {REGIONS.map((region) => (
-            <option key={region.value} value={region.value}>
-              {region.label}
-            </option>
-          ))}
-        </select>
-      </div>
+      <Select
+      selectedRegion={selectedRegion}
+      setSelectedRegion={setSelectedRegion}
+      />
     </div>
   );
 }
