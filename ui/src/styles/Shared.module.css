@@ -6,7 +6,7 @@
   text-align: center;
 }
 .dark .resultsInfo {
-  color: white;
+  color: #f0f0f0;
 }
 
 .countriesGrid {
@@ -38,7 +38,7 @@
   gap: 1rem;
 }
 .dark .loading {
-  color: white;
+  color: #f0f0f0;
 }
 
 .spinner {
@@ -51,7 +51,7 @@
 }
 .dark .spinner {
   border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top-color: white;
+  border-top-color: #f0f0f0;
 }
 
 @keyframes spin {
@@ -66,13 +66,13 @@
   color: black;
 }
 .dark .error {
-  color: white;
+  color: #f0f0f0;
 }
 
 .error button {
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
-  background: white;
+  background: #f0f0f0;
   color: #667eea;
   border: none;
   border-radius: 8px;
@@ -97,7 +97,7 @@
   align-items: center;
 }
 .dark .noResults {
-  color: white;
+  color: #f0f0f0;
 }
 
 .pagination {
@@ -136,7 +136,7 @@
   padding: 0.8rem 1rem;
   border: none;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f0f0f0;
   font-weight: 600;
   font-size: 0.8rem;
   border-radius: 6px;

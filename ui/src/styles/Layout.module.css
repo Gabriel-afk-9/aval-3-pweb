@@ -1,6 +1,6 @@
 .container {
   min-height: 100vh;
-  background: white;
+  background: #f0f0f0;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
