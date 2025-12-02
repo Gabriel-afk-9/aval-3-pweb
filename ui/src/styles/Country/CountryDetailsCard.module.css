@@ -34,6 +34,7 @@
   height: auto;
   object-fit: cover;
   border-radius: 8px;
+  border: 0.2rem solid #cacaca;
   box-shadow: 0 4px 12px 0 rgba(92, 118, 231, 0.3);
 }
 
@@ -45,7 +46,7 @@
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
-  background: white;
+  background: #f0f0f0;
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -78,7 +79,7 @@
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  background: white;
+  background: #f0f0f0;
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -205,7 +206,7 @@
   margin: 1rem auto 0 auto;
   padding: 0.75rem 1.5rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f0f0f0;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;

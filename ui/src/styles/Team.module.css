@@ -1,5 +1,5 @@
 .teamSection {
-  background: white;
+  background: #fff;
   padding: 1.5rem 1rem;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -51,7 +51,7 @@
 }
 
 .teamCard {
-  background: white;
+  background: rgba(0, 0, 0, 0.05);
   border-radius: 12px;
   padding: 1.5rem 1rem;
   display: flex;
@@ -84,7 +84,7 @@
   margin-bottom: 1rem;
   border: 3px solid rgba(102, 126, 234, 0.1);
   padding: 2px;
-  background: white;
+  background: #fff;
   transition: border-color 0.3s;
 }
 
@@ -109,7 +109,7 @@
 }
 
 .teamSection.dark .memberName {
-  color: white;
+  color: #f0f0f0;
 }
 
 .memberRole {
